@@ -41,7 +41,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 //import com.qualcomm.robotcore.hardware.IntegratingGyroscope;
 
 
-@TeleOp(name="MecanumTank", group="Iterative Opmode")
+@TeleOp(name="GODMecanumTank", group="Iterative Opmode")
 public class GODMecanumTank extends OpMode
 {
     // Declare OpMode members.
