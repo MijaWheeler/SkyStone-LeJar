@@ -56,6 +56,7 @@ import java.util.Locale;
 @Disabled                            // Comment this out to add to the opmode list
 public class SensorREVColorDistance extends LinearOpMode {
 
+
     /**
      * Note that the REV Robotics Color-Distance incorporates two sensors into one device.
      * It has an IR proximity sensor which is used to calculate distance and an RGB color sensor.

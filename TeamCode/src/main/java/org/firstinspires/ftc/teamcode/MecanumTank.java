@@ -75,10 +75,11 @@ public class MecanumTank extends OpMode
         frontRightDrive = hardwareMap.dcMotor.get("front_right_drive");
         backLeftDrive   = hardwareMap.dcMotor.get("back_left_drive");
         backRightDrive  = hardwareMap.dcMotor.get("back_right_drive");
+
         lift            = hardwareMap.dcMotor.get("Lift");
         claw            = hardwareMap.dcMotor.get("Claw");
-        servoLeft=hardwareMap.servo.get("Servo_Left");
-        servoRight=hardwareMap.servo.get("Servo_Right");
+        servoLeft       = hardwareMap.servo.get("Servo_Left");
+        servoRight      = hardwareMap.servo.get("Servo_Right");
 
         // Set motor direction
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -91,6 +92,7 @@ public class MecanumTank extends OpMode
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         claw.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         claw.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
