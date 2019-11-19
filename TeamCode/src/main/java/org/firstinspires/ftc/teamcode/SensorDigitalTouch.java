@@ -78,7 +78,7 @@ public class SensorDigitalTouch extends LinearOpMode {
         frontRightDrive = hardwareMap.dcMotor.get("front_right_drive");
         backLeftDrive   = hardwareMap.dcMotor.get("back_left_drive");
         backRightDrive  = hardwareMap.dcMotor.get("back_right_drive");
-        digitalTouch = hardwareMap.digitalChannel.get("Touch");
+        digitalTouch    = hardwareMap.digitalChannel.get("Touch");
 
 
         // Send telemetry message to signify robot waiting;
@@ -98,6 +98,11 @@ public class SensorDigitalTouch extends LinearOpMode {
 
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
+
+        frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         // set the digital channel to input.
         digitalTouch.setMode(DigitalChannel.Mode.INPUT);
@@ -121,10 +126,10 @@ public class SensorDigitalTouch extends LinearOpMode {
             // if the digital channel returns true it's HIGH and the button is unpressed.
             if (digitalTouch.getState() == true) {
                 telemetry.addData("Digital Touch", "Is Not Pressed");
-                frontLeftDrive.setPower(-1);
-                frontRightDrive.setPower(1);
-                backLeftDrive.setPower(-1);
-                backLeftDrive.setPower(1);
+                frontLeftDrive.setPower(-DRIVE_SPEED);
+                frontRightDrive.setPower(DRIVE_SPEED);
+                backLeftDrive.setPower(-DRIVE_SPEED);
+                backLeftDrive.setPower(DRIVE_SPEED);
 
              } else {
                 telemetry.addData("Digital Touch", "Is Pressed");
