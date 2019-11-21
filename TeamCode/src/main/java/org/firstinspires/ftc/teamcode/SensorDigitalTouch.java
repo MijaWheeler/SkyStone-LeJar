@@ -68,6 +68,7 @@ public class SensorDigitalTouch extends LinearOpMode {
 
     static final double     DRIVE_SPEED = 0.6;
     static final double     STRAFE_SPEED  =  0.5;
+   // static final int rot = 0;
 
     @Override
     public void runOpMode(){ //throws InterruptedException
@@ -122,6 +123,7 @@ public class SensorDigitalTouch extends LinearOpMode {
         // Note we use opModeIsActive() as our loop condition because it is an interruptible method.
         while (opModeIsActive()) {
 
+
             // send the info back to driver station using telemetry function.
             // if the digital channel returns true it's HIGH and the button is unpressed.
             if (digitalTouch.getState() == true) {
@@ -130,6 +132,7 @@ public class SensorDigitalTouch extends LinearOpMode {
                 frontRightDrive.setPower(DRIVE_SPEED);
                 backLeftDrive.setPower(-DRIVE_SPEED);
                 backLeftDrive.setPower(DRIVE_SPEED);
+                sleep(500);
 
              } else {
                 telemetry.addData("Digital Touch", "Is Pressed");
@@ -138,6 +141,8 @@ public class SensorDigitalTouch extends LinearOpMode {
                 backLeftDrive.setPower(0);
                 backRightDrive.setPower(0);
                 telemetry.update();
+                sleep(500);
+
             }
 
 

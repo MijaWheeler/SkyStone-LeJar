@@ -55,6 +55,8 @@ public class GODMecanumTank extends OpMode
     private DcMotor claw;
     private Servo servoLeft;
     private Servo servoRight;
+    boolean left_trigger  = false;
+    boolean right_trigger = false;
 
 
     //NavxMicroNavigationSensor navxMicro;
@@ -75,8 +77,8 @@ public class GODMecanumTank extends OpMode
         backRightDrive  = hardwareMap.dcMotor.get("back_right_drive");
         lift            = hardwareMap.dcMotor.get("Lift");
         claw            = hardwareMap.dcMotor.get("Claw");
-        servoLeft=hardwareMap.servo.get("Servo_Left");
-        servoRight=hardwareMap.servo.get("Servo_Right");
+        servoLeft       = hardwareMap.servo.get("Servo_Left");
+        servoRight      = hardwareMap.servo.get("Servo_Right");
 
         // Set motor direction
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -140,6 +142,9 @@ public class GODMecanumTank extends OpMode
         final double bld = magnitudeLeft * Math.cos(robotAngleLeft);
         final double brd = magnitudeRight * Math.sin(robotAngleRight);
 
+
+
+
         //Initial Motor Speeds
         frontLeftDrive.setPower(fld);
         frontRightDrive.setPower(frd);
@@ -149,20 +154,24 @@ public class GODMecanumTank extends OpMode
 
 
         //Claw Controls
+        /*
         double clawSpeed = 0.5;
-        if (gamepad2.a)
+        if (gamepad1.left_trigger  )
             claw.setPower(clawSpeed);
-        else if (gamepad2.b)
+
+        else if (gamepad1.right_trigger)
             claw.setPower(-clawSpeed);
+
         else
             claw.setPower(0.0);
-
+        */
 
         //Lift Controls
+
         double liftSpeed = 1;
-        if (gamepad2.right_bumper)
+        if (gamepad1.right_bumper)
             lift.setPower(liftSpeed);
-        else if (gamepad2.left_bumper)
+        else if (gamepad1.left_bumper)
             lift.setPower(-liftSpeed);
         else
             lift.setPower(0.0);
@@ -179,7 +188,7 @@ public class GODMecanumTank extends OpMode
             frontRightDrive.setPower(-1);
             backLeftDrive.setPower(-1);
             backRightDrive.setPower(1);
-            }
+        }
         else {
             frontLeftDrive.setPower(fld);
             frontRightDrive.setPower(frd);
@@ -187,15 +196,6 @@ public class GODMecanumTank extends OpMode
             backRightDrive.setPower(brd);
         }
 
-        //Servo Controls
-        if (gamepad1.x) {
-            servoLeft.setPosition(0.5);
-            servoRight.setPosition(0.5);
-
-        } else {
-            servoLeft.setPosition(-0.5);
-            servoRight.setPosition(-0.5);
-        }
 
 
 
@@ -212,4 +212,5 @@ public class GODMecanumTank extends OpMode
     }
 
 }
+
 
