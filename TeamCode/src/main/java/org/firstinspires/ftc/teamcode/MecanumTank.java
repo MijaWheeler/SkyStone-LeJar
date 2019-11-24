@@ -33,7 +33,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -48,16 +47,12 @@ public class MecanumTank extends OpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    //private ElapsedTime timer = new ElapsedTime();
     private DcMotor frontLeftDrive;
     private DcMotor frontRightDrive;
     private DcMotor backLeftDrive;
     private DcMotor backRightDrive;
     private DcMotor lift;
     private DcMotor claw;
-    private Servo servoLeft;
-    private Servo servoRight;
-
 
     //NavxMicroNavigationSensor navxMicro;
 
@@ -78,8 +73,7 @@ public class MecanumTank extends OpMode
 
         lift            = hardwareMap.dcMotor.get("Lift");
         claw            = hardwareMap.dcMotor.get("Claw");
-        servoLeft       = hardwareMap.servo.get("Servo_Left");
-        servoRight      = hardwareMap.servo.get("Servo_Right");
+
 
         // Set motor direction
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -92,7 +86,6 @@ public class MecanumTank extends OpMode
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
         claw.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         claw.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -190,18 +183,6 @@ public class MecanumTank extends OpMode
             backLeftDrive.setPower(bld);
             backRightDrive.setPower(brd);
         }
-
-        //Servo Controls
-        if (gamepad1.x) {
-            servoLeft.setPosition(0.5);
-            servoRight.setPosition(0.5);
-
-        } else {
-            servoLeft.setPosition(-0.5);
-            servoRight.setPosition(-0.5);
-        }
-
-
 
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());

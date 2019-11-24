@@ -119,3 +119,31 @@ Note: Some names start with "Team" and others start with "team".  This is intent
 5)  Add:    include ':Team0417' to the "/settings.gradle" file.
     
 6)  Open up Android Studios and clean out any old files by using the menu to "Build/Clean Project""
+
+
+____________________________________________________________________________________________________
+
+Kauai:
+need to replace the string before millilani
+need to bring extra string
+need to figure out how to do wireless programming
+remeber to tape the phone holder
+
+
+Programming Issues: The gradel had not finished updationg. Solved the issue by using a wifi hotspot
+ and finishing the download
+
+Match Overview
+1] phone disconnected b/c the usb cable was not taped down and thw cord is loose. We should try to
+update code wirelessly to reduce ware and tare on the cord and the port
+
+2]the claw was having trouble gripping the cubes b/c the rubber band was not placed low enough.
+Additionally, the claw was not parrallel. TO solve this issue, the
+
+3] alliance member's arm slammed into us and dislocated the cord that goes into the main expansion hub
+
+4] Managed to stack a tower of 2 stones and almost got the cap stone. Human player ended up placing
+stone diagonalu and gaining penality
+
+5] Lost: Alliance recived two minor penalties. One for a late auto and one for flicking a cube.
+We were able to move 5 blocks, place 3, and make no sky scrapers.

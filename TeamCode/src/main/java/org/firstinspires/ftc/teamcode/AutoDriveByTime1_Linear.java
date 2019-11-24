@@ -59,7 +59,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="AutoDriveByTime1_Linear", group="Pushbot")
+@Autonomous(name="DriveByTime_Right", group="Pushbot")
 //@Disabled
 public class AutoDriveByTime1_Linear extends LinearOpMode {
 

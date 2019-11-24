@@ -49,7 +49,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name = "Sensor: Digital touch", group = "Sensor")
-//@Disabled
+@Disabled
 
 public class SensorDigitalTouch extends LinearOpMode {
 
@@ -68,7 +68,8 @@ public class SensorDigitalTouch extends LinearOpMode {
 
     static final double     DRIVE_SPEED = 0.6;
     static final double     STRAFE_SPEED  =  0.5;
-   // static final int rot = 0;
+
+   // static final int i = 0;
 
     @Override
     public void runOpMode(){ //throws InterruptedException
@@ -118,6 +119,8 @@ public class SensorDigitalTouch extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+       //int i = 0;
+
 
         // while the op mode is active, loop and read the light levels.
         // Note we use opModeIsActive() as our loop condition because it is an interruptible method.
@@ -136,6 +139,9 @@ public class SensorDigitalTouch extends LinearOpMode {
 
              } else {
                 telemetry.addData("Digital Touch", "Is Pressed");
+              //  int i = i + 1;
+
+
                 frontLeftDrive.setPower(0);
                 frontRightDrive.setPower(0);
                 backLeftDrive.setPower(0);
@@ -145,11 +151,15 @@ public class SensorDigitalTouch extends LinearOpMode {
 
             }
 
+           // while (digitalTouch.getState() == true) {
+
+
+            }
 
 
 
-        }
-    }
+
+        } //While Op Mode Active
 }
     /**
      * The REV Robotics Touch Sensor
