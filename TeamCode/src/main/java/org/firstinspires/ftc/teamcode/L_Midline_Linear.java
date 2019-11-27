@@ -31,9 +31,10 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-//import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+//import com.qualcomm.robotcore.hardware.DcMotor;
 
 
 //import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
@@ -59,9 +60,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name=" Midline_Right", group="Pushbot")
+@Autonomous(name="Midline_Left", group="Pushbot")
 //@Disabled
-public class AutoDriveByTime1_Linear extends LinearOpMode {
+public class L_Midline_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
     private ElapsedTime     runtime = new ElapsedTime();
@@ -120,10 +121,11 @@ public class AutoDriveByTime1_Linear extends LinearOpMode {
 
 
         // Step 2:  Strafe Right
-        frontLeftDrive.setPower(-STRAFE_SPEED);
-        frontRightDrive.setPower(-STRAFE_SPEED);
-        backLeftDrive.setPower(STRAFE_SPEED);
-        backRightDrive.setPower(STRAFE_SPEED);
+        frontLeftDrive.setPower(STRAFE_SPEED);
+        frontRightDrive.setPower(STRAFE_SPEED);
+        
+        backLeftDrive.setPower(-STRAFE_SPEED);
+        backRightDrive.setPower(-STRAFE_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.5)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());

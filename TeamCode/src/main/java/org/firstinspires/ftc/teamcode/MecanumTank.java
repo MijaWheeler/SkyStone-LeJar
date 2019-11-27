@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -53,6 +54,8 @@ public class MecanumTank extends OpMode
     private DcMotor backRightDrive;
     private DcMotor lift;
     private DcMotor claw;
+
+    public int i = 0;
 
     //NavxMicroNavigationSensor navxMicro;
 
@@ -75,11 +78,14 @@ public class MecanumTank extends OpMode
         claw            = hardwareMap.dcMotor.get("Claw");
 
 
+
+
         // Set motor direction
-        frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
-        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
-        backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
-        backRightDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
+
+        backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        backRightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         //Disable encoders
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -103,6 +109,7 @@ public class MecanumTank extends OpMode
         //    Thread.sleep(500);
         //}
         // Tell the driver that initialization is complete.
+
         telemetry.addData("Status", "Initialized");
         telemetry.update();
     }
@@ -127,6 +134,7 @@ public class MecanumTank extends OpMode
      */
     @Override
     public void loop() {
+
         // Setup a variable for each drive wheel to save power level for telemetry
         double magnitudeLeft = Math.hypot(gamepad1.left_stick_x, gamepad1.left_stick_y);
         double magnitudeRight = Math.hypot(gamepad1.right_stick_x, gamepad1.right_stick_y);
@@ -144,7 +152,6 @@ public class MecanumTank extends OpMode
         backRightDrive.setPower(brd);
         claw.setPower(0.0);
 
-
         //Claw Controls
         double clawSpeed = 0.5;
         if (gamepad2.a)
@@ -153,7 +160,6 @@ public class MecanumTank extends OpMode
             claw.setPower(-clawSpeed);
         else
             claw.setPower(0.0);
-
 
         //Lift Controls
         double liftSpeed = 1;
@@ -183,6 +189,17 @@ public class MecanumTank extends OpMode
             backLeftDrive.setPower(bld);
             backRightDrive.setPower(brd);
         }
+
+
+       while (gamepad1.x){
+            frontLeftDrive.setPower(fld/2);
+            frontRightDrive.setPower(frd/2);
+            backLeftDrive.setPower(bld/2);
+            backRightDrive.setPower(brd/2);
+       }
+
+
+
 
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());

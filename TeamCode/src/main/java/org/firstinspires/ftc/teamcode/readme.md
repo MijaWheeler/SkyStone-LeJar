@@ -147,3 +147,33 @@ stone diagonalu and gaining penality
 
 5] Lost: Alliance recived two minor penalties. One for a late auto and one for flicking a cube.
 We were able to move 5 blocks, place 3, and make no sky scrapers.
+
+
+Monday 11/25
+-Will be leaving at 3pm
+-Will only be practicing Dean's List Interview
+    -Went over the interview questions in the the game manual
+    -Talked about the responces that would show off the best
+
+Tuesday 11/26
+   Goals
+        -Need to make and test Auto to "Strafe Left for Midline" using time.
+            -just need to copy the right auto programmed for Le Jardan and flip the negitive signs in the
+            stafe mode
+        -Need to add the Claw action for the "Move Foundation with Touch Sensor" and test the code
+        -Need to add the "Slow button" for the Mechanum TeleOp
+        - If time allows, need to fix the triggers for the "God Mode"
+
+    Problems
+    -The Mechanical team rewried the tank drive motors, they were going in the wrong direction or they
+    were not moving
+    -The wire that goes into the the phone keeps coming out, mech team decidede to tape it
+
+    Accomplishments
+     -Finished the auto for midline strafe, need to test
+     -Added the slow button for the TeleOp
+
+    Next time
+    -Need to add the Claw action for the "Move Foundation with Touch Sensor" and test the code
+    -Need to do God Mode
+    -Need to Prep for Mililani Competiton
