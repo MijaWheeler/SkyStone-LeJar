@@ -155,6 +155,8 @@ Monday 11/25
     -Went over the interview questions in the the game manual
     -Talked about the responces that would show off the best
 
+
+
 Tuesday 11/26
    Goals
         -Need to make and test Auto to "Strafe Left for Midline" using time.
@@ -170,10 +172,43 @@ Tuesday 11/26
     -The wire that goes into the the phone keeps coming out, mech team decidede to tape it
 
     Accomplishments
-     -Finished the auto for midline strafe, need to test
-     -Added the slow button for the TeleOp
+     -Finished the auto for midline left strafe, need to test.
+        -I made a copy of the midline right strafe and switched out the power variables
+     -Added the slow button for the TeleOp, need to test the robot
 
     Next time
     -Need to add the Claw action for the "Move Foundation with Touch Sensor" and test the code
     -Need to do God Mode
     -Need to Prep for Mililani Competiton
+
+
+
+Wed 11/27
+    Goals
+        -Fix the triggers in GOD mode
+        -Fix the claw action for the "Move Foundation with Touch Sensor"
+        -Test God Mode
+        -Test the MOve Foundation Auto with the Touch Sensor
+        -Need to pack for competition [Travel Team]
+
+    Mililani Competition
+        - Carpool meet @ Kalani HS [6:00am]
+        - Leave @ 6:15am
+        - Roles: Mija [Drive Coach alt., Dean's List, Programmer]
+
+    What I need to do @ Competition
+        -Upload new code and Test all of the Auto's & Teleop
+            -[AUTO] Left Midline, Right Midline, Touch Sensor to Move Foundation
+            -[TeleOp] Mechanum Tank & God
+
+
+    What we did today
+        -Fixed the triggers in the God Mode; there was a floting variable in the if/else loop parameter
+        which requires a boolean variable. To change the float variable to a boolean, an inequality was
+        added to the statemetn in the parameter
+        -Fixed the "Move Foundation with Touch Sensor" Auto
+            -Added an additional parameter to the encoderDRIVE method to control the power that is going
+            to the lift.
+            -Need to test the code
+        -Packed for Mililani Competition
+

@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -43,23 +44,18 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @TeleOp(name="GODMecanumTank", group="Iterative Opmode")
-@Disabled
+//@Disabled
 
 public class GODMecanumTank extends OpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    //private ElapsedTime timer = new ElapsedTime();
     private DcMotor frontLeftDrive;
     private DcMotor frontRightDrive;
     private DcMotor backLeftDrive;
     private DcMotor backRightDrive;
     private DcMotor lift;
     private DcMotor claw;
-    private Servo servoLeft;
-    private Servo servoRight;
-    boolean left_trigger  = false;
-    boolean right_trigger = false;
 
 
     //NavxMicroNavigationSensor navxMicro;
@@ -80,14 +76,12 @@ public class GODMecanumTank extends OpMode
         backRightDrive  = hardwareMap.dcMotor.get("back_right_drive");
         lift            = hardwareMap.dcMotor.get("Lift");
         claw            = hardwareMap.dcMotor.get("Claw");
-        servoLeft       = hardwareMap.servo.get("Servo_Left");
-        servoRight      = hardwareMap.servo.get("Servo_Right");
 
         // Set motor direction
-        frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
-        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
-        backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
-        backRightDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
+        backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        backRightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         //Disable encoders
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -145,9 +139,6 @@ public class GODMecanumTank extends OpMode
         final double bld = magnitudeLeft * Math.cos(robotAngleLeft);
         final double brd = magnitudeRight * Math.sin(robotAngleRight);
 
-
-
-
         //Initial Motor Speeds
         frontLeftDrive.setPower(fld);
         frontRightDrive.setPower(frd);
@@ -157,20 +148,18 @@ public class GODMecanumTank extends OpMode
 
 
         //Claw Controls
-        /*
         double clawSpeed = 0.5;
-        if (gamepad1.left_trigger  )
+        if (gamepad1.left_trigger >= 0.5)
             claw.setPower(clawSpeed);
 
-        else if (gamepad1.right_trigger)
+        else if (gamepad1.right_trigger >= 0.5)
             claw.setPower(-clawSpeed);
 
         else
             claw.setPower(0.0);
-        */
+        
 
         //Lift Controls
-
         double liftSpeed = 1;
         if (gamepad1.right_bumper)
             lift.setPower(liftSpeed);
@@ -179,6 +168,7 @@ public class GODMecanumTank extends OpMode
         else
             lift.setPower(0.0);
 
+        /*
         //Strafing
         if (gamepad1.right_bumper) { //right
             frontLeftDrive.setPower(-1);
@@ -199,7 +189,7 @@ public class GODMecanumTank extends OpMode
             backRightDrive.setPower(brd);
         }
 
-
+            */
 
 
         // Show the elapsed game time and wheel power.

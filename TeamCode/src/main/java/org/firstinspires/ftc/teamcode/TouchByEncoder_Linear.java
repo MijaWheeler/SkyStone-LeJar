@@ -144,17 +144,20 @@ public class TouchByEncoder_Linear extends LinearOpMode {
 
 
         if (i == 0){   //button is NOT pressed-- move forward
-            encoderDrive(DRIVE_SPEED,  1,  1, 3);  // S1: Forward 47 Inches with 5 Sec timeout
-            sleep(500);
+            encoderDrive(DRIVE_SPEED,  1,  1, 5,0.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            sleep(1000);
+            
+            encoderDrive(DRIVE_SPEED,  0,  0, 5,-1.0);
+            sleep(1000);
             //lift moves up for 1 sec
 
         } if (i == 1 ) {     //button is pressed
-            encoderDrive(DRIVE_SPEED,  0,  0, 1);  // S1: Forward 47 Inches with 5 Sec timeout
-            sleep(500);
+            encoderDrive(DRIVE_SPEED,  0,  0, 1, 0.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            sleep(1000);
 
         } else {      // i == 2 -button is released and not pressed - drive backwards
-            encoderDrive(DRIVE_SPEED,  -1,  -1, 3);  // S1: Forward 47 Inches with 5 Sec timeout
-            sleep(500);
+            encoderDrive(DRIVE_SPEED, -1, -1, 3, 0.0);    // S1: Forward 47 Inches with 5 Sec timeout
+            sleep(1000);
         }
 
         telemetry.addData("Path", "Complete");
@@ -170,11 +173,15 @@ public class TouchByEncoder_Linear extends LinearOpMode {
      *  3) Driver stops the opmode running.
      */
     
+
+
+
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
-                             double timeoutS) {
+                             double timeoutS, double liftSpeed) {
         int newLeftTarget;
         int newRightTarget;
+
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
@@ -185,6 +192,7 @@ public class TouchByEncoder_Linear extends LinearOpMode {
             frontRightDrive.setTargetPosition(newRightTarget);
             backLeftDrive.setTargetPosition(newLeftTarget);
             backRightDrive.setTargetPosition(newRightTarget);
+
 
             // Turn On RUN_TO_POSITION
             frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -200,6 +208,8 @@ public class TouchByEncoder_Linear extends LinearOpMode {
             backLeftDrive.setPower(Math.abs(speed));
             backRightDrive.setPower(Math.abs(speed));
 
+            lift.setPower(liftSpeed);
+
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
             // its target position, the motion will stop.  This is "safer" in the event that the robot will
@@ -208,7 +218,7 @@ public class TouchByEncoder_Linear extends LinearOpMode {
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
-                    (frontLeftDrive.isBusy() && frontRightDrive.isBusy())) {
+                    (frontLeftDrive.isBusy() && frontRightDrive.isBusy()) && (lift.isBusy()) ) {
 
                 // Display it for the driver.
                 telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
@@ -223,6 +233,7 @@ public class TouchByEncoder_Linear extends LinearOpMode {
             frontRightDrive.setPower(0);
             backLeftDrive.setPower(0);
             backRightDrive.setPower(0);
+            lift.setPower(0);
 
 
             // Turn off RUN_TO_POSITION

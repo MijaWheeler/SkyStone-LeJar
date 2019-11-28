@@ -77,6 +77,9 @@ public class MecanumTank extends OpMode
         lift            = hardwareMap.dcMotor.get("Lift");
         claw            = hardwareMap.dcMotor.get("Claw");
 
+        float Toggle=1;
+
+
 
 
 
@@ -134,6 +137,7 @@ public class MecanumTank extends OpMode
      */
     @Override
     public void loop() {
+      // int toggle = 1;
 
         // Setup a variable for each drive wheel to save power level for telemetry
         double magnitudeLeft = Math.hypot(gamepad1.left_stick_x, gamepad1.left_stick_y);
@@ -144,6 +148,26 @@ public class MecanumTank extends OpMode
         final double frd = magnitudeRight * Math.cos(robotAngleRight);
         final double bld = magnitudeLeft * Math.cos(robotAngleLeft);
         final double brd = magnitudeRight * Math.sin(robotAngleRight);
+
+        /*
+        if (gamepad1.a) {
+            if (toggle == 1) {
+                frontLeftDrive.setPower(fld / 2);
+                frontRightDrive.setPower(frd / 2);
+                backLeftDrive.setPower(bld / 2);
+                backRightDrive.setPower(brd / 2);
+
+            } else {
+                toggle = 1;
+                frontLeftDrive.setPower(fld);
+                frontRightDrive.setPower(frd);
+                backLeftDrive.setPower(bld);
+                backRightDrive.setPower(brd);
+            }
+
+        }
+
+         */
 
         //Initial Motor Speeds
         frontLeftDrive.setPower(fld);
@@ -189,16 +213,6 @@ public class MecanumTank extends OpMode
             backLeftDrive.setPower(bld);
             backRightDrive.setPower(brd);
         }
-
-
-       while (gamepad1.x){
-            frontLeftDrive.setPower(fld/2);
-            frontRightDrive.setPower(frd/2);
-            backLeftDrive.setPower(bld/2);
-            backRightDrive.setPower(brd/2);
-       }
-
-
 
 
         // Show the elapsed game time and wheel power.
