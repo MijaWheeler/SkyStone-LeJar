@@ -31,9 +31,10 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-//import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+//import com.qualcomm.robotcore.hardware.DcMotor;
 
 
 //import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
@@ -59,9 +60,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name=" Midline_Left_Bridge", group="Pushbot")
+@Autonomous(name=" Midline_Left_Wall", group="Pushbot")
 //@Disabled
-public class AutoDriveByTime1_Linear extends LinearOpMode {
+public class MIdline_Left_Wall extends LinearOpMode {
 
     /* Declare OpMode members. */
     private ElapsedTime     runtime = new ElapsedTime();
@@ -108,7 +109,7 @@ public class AutoDriveByTime1_Linear extends LinearOpMode {
         sleep(500);
         
 
-
+       /*
         // Step 1:  Drive forward for 3 seconds
         frontLeftDrive.setPower(FORWARD_SPEED);
         frontRightDrive.setPower(-FORWARD_SPEED);
@@ -120,9 +121,9 @@ public class AutoDriveByTime1_Linear extends LinearOpMode {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+        */
 
-
-        // Step 2:  Strafe Right
+        // Step 2:  Strafe Left
         frontLeftDrive.setPower(-STRAFE_SPEED);
         frontRightDrive.setPower(-STRAFE_SPEED);
         backLeftDrive.setPower(STRAFE_SPEED);

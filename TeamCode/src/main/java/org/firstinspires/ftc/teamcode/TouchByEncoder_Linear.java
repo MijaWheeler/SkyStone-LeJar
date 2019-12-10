@@ -144,7 +144,7 @@ public class TouchByEncoder_Linear extends LinearOpMode {
 
 
         if (i == 0){   //button is NOT pressed-- move forward
-            encoderDrive(DRIVE_SPEED,  1,  1, 5,0.0);  // S1: Forward 47 Inches with 5 Sec timeout
+            encoderDrive(DRIVE_SPEED,  1,  1, 5.0,0.0);  // S1: Forward 47 Inches with 5 Sec timeout
             sleep(1000);
             
             encoderDrive(DRIVE_SPEED,  0,  0, 5,-1.0);

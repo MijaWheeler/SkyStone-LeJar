@@ -1,4 +1,5 @@
-Saturday 11/23/19:
+
+Kauai 'Saturday 11/23/19:
 
     Reminders for Next Competiton or the Future
         - need to replace the string before millilani
@@ -89,4 +90,41 @@ Wed 11/27
             to the lift.
             -Need to test the code
         -Packed for Mililani Competition
+
+
+
+    11/30 MIllilani Comp
+
+    Problems
+    -Accidently deletedd the driver station app
+
+    Robot COnfiguration
+    Expansion 1:
+        -Motor: Tetrix Motor
+            2: "Lift"
+            3: "Claw"
+    Expansion HUb 3   - Nevers 20
+            Motors
+            0: "front_left_drive"
+            1: "front_right_drive"
+            2: "back_left_drive"
+            3: "back_right_drive"
+
+            Digital Device
+            1: "Touch"
+
+     ________________________________________
+
+     Monday 12/2/19
+     -Caught up on back logged journals. Essentially, I just went into more detail. WIll work on auto on Wed
+
+     Wed 12/4/19
+     -Practice was cancled due our mentor being unable to get off base. [IE day of the Pearl Harbor shooting]
+
+    Friday 12/6/19
+
+    Goals
+    -Make a midline auto for Left & Right Bridge POsition and Back Position
+
+
 

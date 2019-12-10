@@ -60,7 +60,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Midline_Left", group="Pushbot")
+@Autonomous(name="Midline_Right_Wall", group="Pushbot")
 //@Disabled
 public class L_Midline_Linear extends LinearOpMode {
 
@@ -72,8 +72,8 @@ public class L_Midline_Linear extends LinearOpMode {
     private DcMotor backLeftDrive;
     private DcMotor backRightDrive;
 
-    static final double     FORWARD_SPEED =  0.6;
-    static final double     STRAFE_SPEED  =  0.5;
+    static final double     FORWARD_SPEED =  0.3;
+    static final double     STRAFE_SPEED  =  0.3;
 
 
 
@@ -106,6 +106,9 @@ public class L_Midline_Linear extends LinearOpMode {
         frontRightDrive.setPower(0);
         backLeftDrive.setPower(0);
         backRightDrive.setPower(0);
+
+        sleep(500);
+
 
         // Step 1:  Drive forward for 3 seconds
         frontLeftDrive.setPower(FORWARD_SPEED);
