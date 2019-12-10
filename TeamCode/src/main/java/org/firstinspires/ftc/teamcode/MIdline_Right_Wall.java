@@ -60,7 +60,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Midline_Right_Wall", group="Pushbot")
+@Autonomous(name="Midline_Right_Near", group="Pushbot")
 //@Disabled
 public class MIdline_Right_Wall extends LinearOpMode {
 

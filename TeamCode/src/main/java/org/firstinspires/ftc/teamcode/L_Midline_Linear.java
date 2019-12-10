@@ -60,7 +60,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Midline_Right_Wall", group="Pushbot")
+@Autonomous(name="Midline_Right_Far", group="Pushbot")
 //@Disabled
 public class L_Midline_Linear extends LinearOpMode {
 
@@ -113,27 +113,34 @@ public class L_Midline_Linear extends LinearOpMode {
         // Step 1:  Drive forward for 3 seconds
         frontLeftDrive.setPower(FORWARD_SPEED);
         frontRightDrive.setPower(-FORWARD_SPEED);
-
         backLeftDrive.setPower(FORWARD_SPEED);
         backRightDrive.setPower(-FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.9)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
 
+        //STOP
+        frontLeftDrive.setPower(0);
+        frontRightDrive.setPower(0);
+        backLeftDrive.setPower(0);
+        backRightDrive.setPower(0);
+        sleep(500);
+
+
         // Step 2:  Strafe Right
         frontLeftDrive.setPower(STRAFE_SPEED);
         frontRightDrive.setPower(STRAFE_SPEED);
-        
         backLeftDrive.setPower(-STRAFE_SPEED);
         backRightDrive.setPower(-STRAFE_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.9)) {
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+
 
         // Step 4:  Stop and close the claw.
         frontLeftDrive.setPower(0);
